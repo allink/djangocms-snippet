@@ -29,7 +29,7 @@ class SnippetPlugin(CMSPluginBase):
                 context.update({
                     'html': mark_safe(instance.snippet.html)
                 })
-                content = t.render(Context(context))
+                content = t.render(context.flatten())
             else:
                 t = template.Template(instance.snippet.html)
                 content = t.render(Context(context))
